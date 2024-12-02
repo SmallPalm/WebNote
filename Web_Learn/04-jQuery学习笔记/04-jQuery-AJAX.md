@@ -1,0 +1,69 @@
+# jQuery的AJAX
+
+- 在前端页面开发中，如果页面中的数据是需要动态获取或者更新的
+  - 这时我们需要向服务器发送异步的请求来获取数据
+    - 然后在动态更新页面。    
+  - **发起异步请求获取数据并动态更页面的的技术就叫做Ajax。**
+- Ajax全称（Asynchronous JavaScript And XML
+  - 是异步的 JavaScript 和 XML
+    - 它描述了一组用于构建网站和Web应用程序的开发技术。
+  - 简单点说，就是使用 XMLHttpRequest 对象与服务器通信
+    - 它可以使用 JSON，XML，HTML 和 text 文本等格式发送和接收数据
+- AJAX 最吸引人的就是它的“异步”特性
+  - 也就是说它可以在不重新刷新页面的情况下与服务器通信
+    - 交换数据或更新页面。
+- Ajax请求方法（Method）
+  - GET、POST、PUT、DELETE等
+- jQuery中也有Ajax模块
+  - 该模块是在XMLHttpRequest的基础上进行了封装，语法（Syntax）如下：
+    - $.ajax( [settings ] )
+      -  默认用  GET 请求从服务器加载数据。
+    - $.get( url [, data ] [, success ] [, dataType ] )
+      - 发起GET请求，底层调用的还是$ajax()
+    - .post( url [, data ] [, success ] [, dataType ] )
+      - 发起POST请求，底层调用的还是$ajax()
+
+# AJAX请求参数
+
+- **请求参数（Paramsters)**
+  - url
+    - 指定发送请求的 URL
+  - method / type
+    - 用于指定请求的类型 
+      - (e.g. "POST", "GET", "PUT") 
+        - 默认为GET
+  - data
+    - 指定要发送到服务器的数据
+      - （PlainObject or String or Array）
+  - processData
+    - 当data是一个对象时
+      - jQuery从对象的键值对生成数据字符串
+    - 除非该processData选项设置为false
+      - 例如 {a: “vj”} 被转换为 a=vj$b=wfee
+      - 默认为true
+  - header
+    - 请求头的内容
+      - （PlainObject）
+  - contentType
+    - 默认值：
+    - application/x-www-form-urlencoded; charset = UTF-8
+      - 向服务器发送数据时指定内容类型。
+        - application/json; charset=UTF-8
+          - 指定为json字符串类型
+        - application/x-www-form-urlencoded;charset=UTF-8
+          - 请求体的数据以查询字符串形式提交
+            - 如a=bc&d=e
+        - application/form-data
+          - 表单类型- 一般用于上传文件 
+  - dataType
+    - 期望服务器端发回的数据类型
+      - 默认会根据响应的类型来自动推断类型
+  - timeout
+    - 请求的本地超时时间。它以毫秒为单位。
+  - beforeSend
+    - 这是一个在发送请求之前运行的函数，
+      - 返回false会取消网路请求。
+  - success
+    - 请求成功回调的函数
+  - error
+    -  请求失败回调的函数 
